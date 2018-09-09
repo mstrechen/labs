@@ -1,0 +1,49 @@
+\renewcommand*\contentsname{\centering Содержание}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+\renewcommand\thesection{}
+\renewcommand\thesubsection{}
+
+
+\newenvironment{codeblock}{}{}
+
+\newcommand{\sourcecode}[2]{
+  \begin{codeblock}{}
+	\lstinputlisting[title={#2}]{code/#1}
+  \end{codeblock}
+}
+
+\newcommand{\sourcecodeempty}[1]{
+  \begin{codeblock}{}
+	\lstinputlisting[title={Код:}]{code/#1}
+  \end{codeblock}
+}
+
+\newcommand{\sourcecodeJS}[2]{
+	\lstset{language=java}
+  
+	  \begin{codeblock}{}
+		\lstinputlisting[title={#2 Содержание файла #1}]{code/#1}
+	  \end{codeblock}
+  
+	\lstset{language=[11]C++}	
+}
+\newcommand{\sourcecodeHTML}[2]{
+	\lstset{language=html}
+  
+	  \begin{codeblock}{}
+		\lstinputlisting[title={#2 Содержание файла #1}]{code/#1}
+	  \end{codeblock}
+  
+	\lstset{language=[11]C++}	
+}
+
+\newcommand{\UkrainianMonth}[1]{
+	\ifcase#1
+	\or січня 	\or лютого
+	\or березня	\or квітня	\or травня
+	\or червня 	\or липня	\or серпня
+	\or вересня	\or жовтня	\or листопада
+	\or грудня
+	\fi
+}

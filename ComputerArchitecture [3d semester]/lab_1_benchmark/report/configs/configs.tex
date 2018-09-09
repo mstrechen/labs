@@ -1,0 +1,67 @@
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian, ukrainian]{babel}
+\usepackage{graphicx}
+\usepackage{tocloft}
+\usepackage{textcomp}
+\usepackage{listings}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsfonts}
+\usepackage{framed,lipsum}
+\usepackage[dvipsnames ]{xcolor}
+\usepackage{titling}
+\usepackage{datetime}
+\usepackage{indentfirst}
+\usepackage[nottoc,numbib]{tocbibind}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{amssymb}
+\usepackage{colortbl}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage[normalem]{ulem}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+\usepackage[titletoc]{appendix}
+
+\graphicspath{ {images/} }
+
+\setcounter{tocdepth}{1}
+
+%\markright{ }
+
+%\pagestyle{myheadings}
+
+\lstset{
+	backgroundcolor=\color{white},  
+	basicstyle= \tiny \ttfamily \color{black} \bfseries,   
+	breakatwhitespace=false,     
+	breaklines=true,    
+	captionpos = t,
+	commentstyle=\color{OliveGreen},   
+	deletekeywords={...},      
+	escapeinside={\%*}{*)},                  
+	frame=single,                  
+	language=[11]C++,                
+	keywordstyle=\color{RoyalPurple},  
+	morekeywords={boost}, 
+	identifierstyle=\color{black},
+	stringstyle=\color{blue},      
+	numbers=left,                 
+	numbersep=9pt,                  
+	numberstyle=\color{black}, 
+	rulecolor=\color{black},        
+	showspaces=false,               
+	showstringspaces=false,        
+	showtabs=false,                
+	stepnumber=1,                   
+	tabsize=4,                     
+	title=\lstname,
+	extendedchars=true,
+	literate = {ツ}{{\#}}1  {¯}{{\string^}}1
+}
