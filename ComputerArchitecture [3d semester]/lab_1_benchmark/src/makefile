@@ -3,7 +3,7 @@ LIBDIRECTORY =includes
 INCLUDES_CPP = benchmark.cpp listoftests.cpp textstyle.cpp cpuinfo.cpp
 INCLUDES_O = $(INCLUDES_CPP:.cpp=.o)
 
-FLAGS = -O1 -Wall
+FLAGS = -O1 -Wall -std=c++11
 OUTPUT_FILE = main.out
 
 
