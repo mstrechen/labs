@@ -12,8 +12,10 @@ using namespace std;
 #endif
 
 #ifndef MOD
-    #define MOD (16 * 16 * 16 * 16)
+    #define MOD (1 << 30)
 #endif
+
+#define MOD_MASK (MOD - 1)
 
 #ifndef INIT_VALUE
     #define INIT_VALUE (11323)

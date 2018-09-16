@@ -81,7 +81,7 @@ void print_service_info(ostream & cout){
 }
 
 void print_last_row(ostream & cout){
-    cout << TEXT::CORNER<90>() << endl;
+    cout << TEXT::CORNER<94>() << endl;
 }
 
 
@@ -91,7 +91,7 @@ void print_first_row(ostream & cout){
     "  TIME (ms)  :"
     "REAL TIME (ms):"
     "OP PER SEC:"
-    "   %   :"
+    "     %     :"
     " " 
     << TEXT::perfomance_line(MAX_COUNT_OF_MARKS, 0) 
     << "  "
@@ -137,7 +137,7 @@ void print_row(
         << setw(9)
         << setprecision(2) <<  (scientific) <<  operations_per_second
         << " : "
-        << setprecision(1) << (fixed) << setw(5)
+        << setprecision(1) << (fixed) << setw(9)
         << percent
         << " : "
         << TEXT::perfomance_line(perfomance, MAX_COUNT_OF_MARKS - perfomance)
