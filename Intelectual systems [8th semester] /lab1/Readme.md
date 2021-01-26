@@ -40,8 +40,6 @@ RegexpMatcher('Im $name?', 'Hi {name}')
 RegexpMatcher('Im $name*', 'Hi {name}')
 # Multiple variables are allowed as well
 RegexpMatcher('Im $name+ from $country+', 'Hello {name}. I have never been in {country}, is it cool there?')
-
-
 ```
 
 Notes: 
