@@ -33,7 +33,7 @@ class SimpleMatcher(PhraseMatcher):
   WILDCARD_RE = re.compile('(?:\.\.\.|\*)')
   FUNC_RE = re.compile('(?P<func>\w+)\((?P<args>\s*\w+(?:\s*,\s*\w+)*)\)')
   ARG_RE = re.compile('\$\w+[\+\*\?]?')
-  WORD_RE = re.compile('\w+')
+  WORD_RE = re.compile('\w+[\?\*\+]?')
   
   def __init__(self, pattern: t.Union[str, t.Collection[str]], *responses):
     self.regexp = self._compile_pattern(pattern)
@@ -45,7 +45,9 @@ class SimpleMatcher(PhraseMatcher):
     if isinstance(pattern, str):
       pattern = pattern.split()
     parts = [cls._compile_pattern_part(pattern_part) for pattern_part in pattern]
-    return ' '.join(parts)
+    result = ' '.join(parts)
+    result = result.replace('SKIP_SPACE_DIRECTIVE ', '').replace('SKIP_SPACE_DIRECTIVE', '')
+    return result
   
   @classmethod
   def _compile_pattern_part(cls, pattern: str): 
@@ -115,6 +117,9 @@ class SimpleMatcher(PhraseMatcher):
   
   @classmethod
   def _compile_word(cls, pattern: str) -> str:
+    if pattern[-1] in ['+', '*', '?']:
+      pattern, option = pattern[:-1], pattern[-1]
+      return f'(?:{pattern}(?: |$)){option}SKIP_SPACE_DIRECTIVE'
     return pattern
 
 import string
@@ -122,9 +127,9 @@ class DialogueSystem:
   def __init__(self, *rules: t.Tuple[PhraseMatcher]):
     self.rules = rules
   
-  ALLOWED_SYMBOLS = string.ascii_letters + string.digits + ' '
+  EXTRA_ALLOWED_SYMBOLS = string.digits + ' '
   def get_response(self, text) -> str:
-    text = ''.join(filter(lambda s: s in self.ALLOWED_SYMBOLS, text))
+    text = ''.join(filter(lambda s: s.isalpha() or s in self.EXTRA_ALLOWED_SYMBOLS, text))
     for rule in self.rules:
       match = rule.match(text)
       if match:
