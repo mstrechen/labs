@@ -1,5 +1,7 @@
 all: build stop run
 
+all-shell: build run-shell
+
 build:
 	docker build . -t is-lab-1
 
