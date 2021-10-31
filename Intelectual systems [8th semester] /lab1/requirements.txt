@@ -1,2 +1,2 @@
-nltk==3.5
+nltk==3.6.5
 python-telegram-bot==13.1
